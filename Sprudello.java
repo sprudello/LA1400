@@ -1,10 +1,6 @@
 package BurletJulius;
 import robocode.*;
 import java.lang.Math;
-//Velocity Unit is px/tick
-//Bulletspeed = 20 - (3 * power)
-// API help : https://robocode.sourceforge.io/docs/robocode/robocode/JuniorRobot.html
-
 
 public class Sprudello extends JuniorRobot
 {
@@ -35,8 +31,6 @@ public class Sprudello extends JuniorRobot
 		turnGunRight(360);
 		int i = 0;
 		
-		
-		// Robot main loop
 		while(true) {
 			ahead(100);
 			i++;
