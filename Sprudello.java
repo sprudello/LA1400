@@ -47,7 +47,6 @@ public class Sprudello extends JuniorRobot
 		calcPreAimAngle();
 		outputInfosAboutCalculations();
 		shoot();
-		
 	}
 
 	public void onHitByBullet() {
@@ -59,7 +58,13 @@ public class Sprudello extends JuniorRobot
 	public void onHitWall() {
 		turnRight(90);
 	}	
-
+	
+	public void outputInfosAboutTarget(){
+		out.println("ScannedDistance: " + scannedDistance_);
+		out.println("ScannedVelocity: " + scannedVelocity_);
+		out.println("gunHeading: "  + gunHeading_);
+	}
+	
 	public void outputInfosAboutCalculations(){
 		out.println("shootPath: " + shootPath);
 		out.println("PreAimAngle: " + preAimAngle);
@@ -67,7 +72,13 @@ public class Sprudello extends JuniorRobot
 		out.println("omegaafter" + omegaPreAimAngle);
 	}
 	
-		public void saveDisappearingData(){
+	public void outputInfosAboutAngles(){
+		out.println("DistanceSPreCalc: " + scannedDistance_);
+		out.println("DistanceTPReCalc: " + distanceTraveled);
+		out.println("BetaPreCalc: " + beta);
+	}
+	
+	public void saveDisappearingData(){
 		scannedDistance_ = scannedDistance;
 		scannedVelocity_ = scannedVelocity;
 		turnGunTo(scannedAngle);
@@ -89,21 +100,9 @@ public class Sprudello extends JuniorRobot
 		ahead(fieldHeight - robotY);
 	}
 
-	public void outputInfosAboutTarget(){
-		out.println("ScannedDistance: " + scannedDistance_);
-		out.println("ScannedVelocity: " + scannedVelocity_);
-		out.println("gunHeading: "  + gunHeading_);
-	}
-
 	public void calcBeta(){
 		angleForCalc = scannedAngle_ - 180;
 		beta = angleForCalc - scannedHeading_;
-	}
-
-	public void outputInfosAboutAngles(){
-		out.println("DistanceSPreCalc: " + scannedDistance_);
-		out.println("DistanceTPReCalc: " + distanceTraveled);
-		out.println("BetaPreCalc: " + beta);
 	}
 
 	public void normalizePreAimAngle(){
